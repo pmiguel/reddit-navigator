@@ -18,11 +18,11 @@
 }
 
 .reddit-navigator__button.prev {
-    background-color: aquamarine;
-    border-color: mediumaquamarine;
+    background-color: #00a6fa;
+    border-color: #0084d2;
 }
 
 .reddit-navigator__button.next {
-    background-color: orange;
-    border-color: darkorange;
+    background-color: #ff852b;
+    border-color: #f46d29;
 }
