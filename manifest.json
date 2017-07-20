@@ -6,7 +6,7 @@
   "version": "0.6.0",
 
   "browser_action": {
-    "default_icon": "assets/icon.png",
+    "default_icon": "assets/navigate.png",
     "default_title": "Reddit Navigator"
   },
 
