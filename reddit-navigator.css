@@ -1,0 +1,12 @@
+.reddit_navigator-button {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    width: 32px;
+    height: 32px;
+    background-color: aquamarine;
+    border-radius: 3px;
+    border: 1px solid mediumaquamarine;
+    /* offset-x | offset-y | blur-radius | color */
+    box-shadow: 10px 10px 5px #0d3938;
+}

@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "Reddit Navigator",
+  "description": "This extension provides easier comment navigation for Reddit, similar to Slide for Reddit's.",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_icon": "assets/icon.png",
+    "default_title": "Reddit Navigator"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http*://www.reddit.com/r/*/comments/*"],
+      "css": ["reddit-navigador.css"],
+      "js": ["reddit-navigator.js"]
+    }
+  ],
+  "permissions": [
+    "tabs"
+  ]
+}
