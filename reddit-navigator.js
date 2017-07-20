@@ -26,8 +26,8 @@ let redditNavigatorContainer = document.createElement('div');
 redditNavigatorContainer.className += 'reddit-navigator';
 
 // Create buttons
-let nextButton = createButton(next, 'next', 'Navigate to next main comment.');
-let prevButton = createButton(prev, 'prev', 'Navigate to previous main comment.');
+let nextButton = createButton(nextComment, 'next', 'Navigate to nextComment main comment.');
+let prevButton = createButton(previousComment, 'prev', 'Navigate to previous main comment.');
 
 // Attach to body
 redditNavigatorContainer.appendChild(nextButton);
@@ -35,9 +35,9 @@ redditNavigatorContainer.appendChild(prevButton);
 document.body.appendChild(redditNavigatorContainer);
 
 /**
- * Navigates to the next main comment
+ * Navigates to the nextComment main comment
  */
-function next() {
+function nextComment() {
     if (!currentComment) {
         currentComment = REDDIT_COMMENT_CONTAINER.firstElementChild;
     } else {
@@ -47,22 +47,25 @@ function next() {
         }
     }
 
+    // Float clearing elements appear in between main comments. This allows us to bypass them
     while(!currentComment.className.includes('comment')) {
         currentComment = currentComment.nextElementSibling;
     }
+
     scrollTo(currentComment);
 }
 
 /**
  * Navigates to the previous comment
  */
-function prev() {
+function previousComment() {
     if (currentComment) {
         let prev = currentComment.previousElementSibling;
         if(prev !== null) {
             currentComment = prev;
         }
 
+        // Float clearing elements appear in between main comments. This allows us to bypass them
         while(!currentComment.className.includes('comment')) {
             currentComment = currentComment.previousElementSibling;
         }
@@ -74,6 +77,9 @@ function prev() {
  * Scrolls the page to a target location.
  */
 function scrollTo(targetComment) {
+    if( targetComment === null) {
+        return;
+    }
     if(typeof targetComment !== 'object' || !(targetComment instanceof HTMLDivElement )) {
         throw new TypeError('targetComment is not of type HTMLDivElement');
     }
