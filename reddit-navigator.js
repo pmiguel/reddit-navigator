@@ -29,6 +29,9 @@ redditNavigatorContainer.className += 'reddit-navigator';
 let nextButton = createButton(nextComment, 'next', 'Navigate to nextComment main comment.');
 let prevButton = createButton(previousComment, 'prev', 'Navigate to previous main comment.');
 
+nextButton.appendChild(document.createTextNode('v'));
+prevButton.appendChild(document.createTextNode('^'));
+
 // Attach to body
 redditNavigatorContainer.appendChild(nextButton);
 redditNavigatorContainer.appendChild(prevButton);
