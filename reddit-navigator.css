@@ -6,6 +6,7 @@
     flex-direction: row;
     justify-content: space-between;
     width: 70px;
+    z-index: 10000;
 }
 
 .reddit-navigator__button {
