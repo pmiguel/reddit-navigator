@@ -12,8 +12,8 @@
 
   "content_scripts": [
     {
-      "matches": ["http*://www.reddit.com/r/*/comments/*"],
-      "css": ["reddit-navigador.css"],
+      "matches": ["https://www.reddit.com/r/*/comments/*"],
+      "css": ["reddit-navigator.css"],
       "js": ["reddit-navigator.js"]
     }
   ],

@@ -1,26 +1,38 @@
-const REDDIT_COMMENT_CONTAINER = document.getElementsByClassName('sitetable nestedlisting');
-let currentComment = null;
+console.debug('REDDIT-NAVIGATOR-INIT');
 
-if (REDDIT_COMMENT_CONTAINER.length === 0) {
-    throw new TypeError('Current page does not include any comment section');
-}
+const REDDIT_COMMENT_CONTAINER = document.getElementsByClassName('sitetable nestedlisting')[0];
+let currentComment = null;
 
 /**
  * Creates a button and injects it on the page
  * @param action The action the button executes
- * @param appendTo The target container. Default is document.body
+ * @param className Name of class of the button
+ * @param title The button title
  */
-function createButton(action, appendTo = document.body) {
+function createButton(action, className, title = null) {
     let button = document.createElement('button');
-    button.className += 'reddit_navigator-button';
-
+    button.className += `reddit-navigator__button ${className}`;
     button.addEventListener('click', (event) => {
         event.preventDefault();
         action();
     });
-
-    appendTo.appendChild(button);
+    if (title) {
+        button.title = title;
+    }
+    return button;
 }
+
+let redditNavigatorContainer = document.createElement('div');
+redditNavigatorContainer.className += 'reddit-navigator';
+
+// Create buttons
+let nextButton = createButton(next, 'next', 'Navigate to next main comment.');
+let prevButton = createButton(prev, 'prev', 'Navigate to previous main comment.');
+
+// Attach to body
+redditNavigatorContainer.appendChild(nextButton);
+redditNavigatorContainer.appendChild(prevButton);
+document.body.appendChild(redditNavigatorContainer);
 
 /**
  * Navigates to the next main comment
@@ -28,10 +40,15 @@ function createButton(action, appendTo = document.body) {
 function next() {
     if (!currentComment) {
         currentComment = REDDIT_COMMENT_CONTAINER.firstElementChild;
+    } else {
+        let next = currentComment.nextElementSibling;
+        if (next !== null) {
+            currentComment = next;
+        }
     }
-    currentComment = currentComment.nextNode();
+
     while(!currentComment.className.includes('comment')) {
-        currentComment = currentComment.nextNode();
+        currentComment = currentComment.nextElementSibling;
     }
     scrollTo(currentComment);
 }
@@ -41,7 +58,14 @@ function next() {
  */
 function prev() {
     if (currentComment) {
-        currentComment = currentComment.previousNode();
+        let prev = currentComment.previousElementSibling;
+        if(prev !== null) {
+            currentComment = prev;
+        }
+
+        while(!currentComment.className.includes('comment')) {
+            currentComment = currentComment.previousElementSibling;
+        }
     }
     scrollTo(currentComment);
 }
