@@ -51,7 +51,7 @@ function nextComment() {
     }
 
     // Float clearing elements appear in between main comments. This allows us to bypass them
-    while(!currentComment.className.includes('comment')) {
+    while(!hasClass(currentComment, 'comment') || hasClass(currentComment, 'deleted')) {
         currentComment = currentComment.nextElementSibling;
     }
 
@@ -69,7 +69,7 @@ function previousComment() {
         }
 
         // Float clearing elements appear in between main comments. This allows us to bypass them
-        while(!currentComment.className.includes('comment')) {
+        while(!hasClass(currentComment, 'comment') || hasClass(currentComment, 'deleted')) {
             currentComment = currentComment.previousElementSibling;
         }
     }
@@ -88,5 +88,14 @@ function scrollTo(targetComment) {
     }
     const commentId = targetComment.id;
     window.location.href = `#${commentId}`;
+}
+
+/**
+ * Checks if an element has a given class
+ * @param {HTMLDivElement} element 
+ * @returns {bool} True if the element includes the class
+ */
+function hasClass(element, className) {
+    return element.className.includes(className);
 }
 
