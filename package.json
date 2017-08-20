@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/pmiguel/reddit-navigator#readme",
   "devDependencies": {
-    "copy-webpack-plugin": "^4.0.1"
+    "copy-webpack-plugin": "^4.0.1",
+    "webpack": "^3.5.5"
   }
 }
