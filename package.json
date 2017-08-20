@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
+    "release": "webpack --env=release",
     "watch": "webpack --watch"
   },
   "repository": {
@@ -26,6 +27,7 @@
   "homepage": "https://github.com/pmiguel/reddit-navigator#readme",
   "devDependencies": {
     "copy-webpack-plugin": "^4.0.1",
-    "webpack": "^3.5.5"
+    "webpack": "^3.5.5",
+    "zip-webpack-plugin": "^2.0.0"
   }
 }

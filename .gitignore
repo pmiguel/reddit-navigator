@@ -1,5 +1,6 @@
 .idea/
 dist/
+release/
 node_modules/
 package-lock.json
 yarn-lock.json

@@ -1,15 +1,10 @@
 import strategies from "strategies";
 import PageController from "./PageController";
 
-console.debug('REDDIT-NAVIGATOR-INIT');
+console.debug('::Reddit Navigator');
+if (ENV.development) { console.warn('Running development build of Reddit navigator'); }
 
 const commentContainer = document.getElementsByClassName('sitetable nestedlisting')[0];
-
-/**
- * Scrolls the page to a target location.
- */
-
 const strategy = strategies.factory('NEAREST', commentContainer);
-
 const navigationControl = new PageController(strategy, commentContainer);
 navigationControl.init();
