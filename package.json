@@ -1,6 +1,6 @@
 {
   "name": "reddit-navigator",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "Reddit navigation extension for Google Chrome",
   "main": "index.js",
   "scripts": {
