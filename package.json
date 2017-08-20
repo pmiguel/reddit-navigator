@@ -1,0 +1,30 @@
+{
+  "name": "reddit-navigator",
+  "version": "0.7.0",
+  "description": "Reddit navigation extension for Google Chrome",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmiguel/reddit-navigator.git"
+  },
+  "keywords": [
+    "reddit",
+    "navigation",
+    "extension",
+    "chrome"
+  ],
+  "author": "Pedro Leal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pmiguel/reddit-navigator/issues"
+  },
+  "homepage": "https://github.com/pmiguel/reddit-navigator#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.0.1"
+  }
+}
