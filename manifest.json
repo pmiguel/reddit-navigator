@@ -3,7 +3,7 @@
 
   "name": "Reddit Navigator",
   "description": "This extension provides easier comment navigation for Reddit, similar to Slide for Reddit.",
-  "version": "0.8.5",
+  "version": "0.9.0",
 
   "browser_action": {
     "default_icon": "assets/navigate.png",
