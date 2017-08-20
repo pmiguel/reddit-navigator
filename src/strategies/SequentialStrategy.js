@@ -1,9 +1,10 @@
-import { hasClass } from 'utils/dom';
+import BaseStrategy from "./BaseStrategy";
 
-export default class SequentialStrategy {
+export default class SequentialStrategy extends BaseStrategy {
     constructor(rootContainer) {
-        this._container = rootContainer;
+        super(rootContainer);
         this._currentComment = null;
+        console.debug('SequentialStrategy::constructor');
     }
 
     getNext() {
@@ -17,7 +18,7 @@ export default class SequentialStrategy {
         }
 
         // Float clearing elements appear in between main comments. This allows us to bypass them
-        while(!hasClass(this._currentComment, 'comment') || hasClass(this._currentComment, 'deleted')) {
+        while(!BaseStrategy.isComment(this._currentComment)) {
             this._currentComment = this._currentComment.nextElementSibling;
         }
         return this._currentComment;
@@ -31,7 +32,7 @@ export default class SequentialStrategy {
             }
 
             // Float clearing elements appear in between main comments. This allows us to bypass them
-            while(!hasClass(this._currentComment, 'comment') || hasClass(this._currentComment, 'deleted')) {
+            while(!BaseStrategy.isComment(this._currentComment)) {
                 this._currentComment = this._currentComment.previousElementSibling;
             }
         }

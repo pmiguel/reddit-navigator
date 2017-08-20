@@ -1,5 +1,5 @@
 import { createButton } from "utils/dom";
-import SequentialStrategy from "strategies/SequentialStragegy";
+import strategies from "strategies";
 
 console.debug('REDDIT-NAVIGATOR-INIT');
 
@@ -35,7 +35,7 @@ function scrollTo(targetComment) {
     window.location.href = `#${commentId}`;
 }
 
-const NavigationalStrategy = new SequentialStrategy(COMMENT_CONTAINER);
+const NavigationalStrategy = new strategies.Nearest(COMMENT_CONTAINER);
 
 nextButton.addEventListener('click', (event) => {
     event.preventDefault();
