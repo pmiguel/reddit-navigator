@@ -10,14 +10,35 @@ Some subreddits might change the style of the rendered buttons (example in https
 
 ### Building
 This requires you to have NodeJS 6+ and NPM 3+ installed.
-Clone the repository to your local machine and then run `npm install` to install all dependencies.
-To get a `development` build (recommended), simply run `npm run build`. It'll generate a `dist/` directory containing the unpacked extension to add in your Chrome Extension Manager page. A watcher is available through `npm run watch`.
-To get a `release` build, run `npm run release`, and it'll output a zip file in the `release/` folder named after the current release version and a timestamp.
+Clone/Fork the repository to your machine and install the dependencies:
+
+    npm install
+    
+A `development` build is one containing the unpacked extension bundles ready to be manually imported to Chrome through
+the extension page. To generate it, run:
+
+    npm run build
+    
+It'll output the extension to a `dist/` directory in the project root.
+
+A file watcher is also available:
+
+    npm run watch
+    
+To create a release ready build (zip folder containing the extension ready to be released in the Store), run:
+
+    num run release
+    
+It'll output the same unpacked extension to the `dist/` directory, along with a timestamped and 
+versioned zip archive in the `release/` directory of your project root.
+
 
 ### Instalation
-The extension is not currently available on Chrome Web Store (plan on doing so when I feel the extension is ready), so you'll have to manually add the unpacked package on [chrome://extensions/](chrome://extensions/)
-
+To manually install your unpacked extension, simply follow this steps:
 - Navigate to your Chrome Extensions manager page and enable Developer Mode.
-- Click 'Load Unpacked Extension' and then select the selection `dist` directory after you've built it.
+- Click 'Load Unpacked Extension' and then select the selection `dist/` directory after you've built it.
 - Navigate to a Reddit thread and enjoy.
 
+If you wish to simply use the extension, a preview version is available at [Chrome Web Store](https://chrome.google.com/webstore/detail/reddit-navigator/dmidjdkgniepmoepdabkfkmankofhonb).
+
+Any feedback would be appreciated. Feel free to post an Issue to do so.

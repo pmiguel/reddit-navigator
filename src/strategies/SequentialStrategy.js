@@ -4,6 +4,7 @@ export default class SequentialStrategy extends BaseStrategy {
     constructor(rootContainer) {
         super(rootContainer);
         this._currentComment = null;
+        this.name = 'Next Parent';
         console.debug('SequentialStrategy::constructor');
     }
 
@@ -37,5 +38,9 @@ export default class SequentialStrategy extends BaseStrategy {
             }
         }
         return this._currentComment;
+    }
+
+    toString() {
+        return this.name;
     }
 }
